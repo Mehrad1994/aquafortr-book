@@ -1,0 +1,6 @@
+/.quarto/
+data/
+microbenchmark/
+*.csv
+*.so 
+*.dll

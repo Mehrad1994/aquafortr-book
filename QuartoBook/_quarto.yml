@@ -1,0 +1,81 @@
+project:
+  type: book
+
+execute:
+    cache: false
+    warning: false
+
+book:
+  title: "AquaFortR: Streamlining Atmospheric Science, Oceanography, Climate, 
+      and Water Research with Fortran-accelerated R"
+  author: 
+    - name:  "Ahmed Homoudi"
+      orcid: 0000-0001-6906-5986
+      email: ahmed.homoudi@tu-dresden.de
+      affiliations: 
+       - name: |
+               | TUD Dresden University of Technology
+               | Institute of Hydrology and Meteorology
+  date-format: "DD MMMM YYYY"
+  date: "20/04/2024"
+  #cover-image: 
+  downloads: pdf
+  reader-mode: true
+  site-url: "https://ahomoudi.github.io/AquaFortR/book/"
+  repo-url: "https://github.com/AHomoudi/AquaFortR/"
+  sharing: [twitter, facebook, linkedin]
+  open-graph: true
+  
+  
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - scripts.qmd
+    - package.qmd
+    - summary.qmd
+    - further_reading.qmd
+    - references.qmd
+  page-navigation: true
+
+
+
+bibliography: [references.bib, rpackages.bib]
+csl: apa.csl
+
+format:
+  html:
+   theme:
+     light:
+       - flatly
+     dark:
+       - darkly
+   code-link: true
+   code-fold: true
+   #code-line-numbers: true
+  pdf:
+    documentclass: book
+    template-partials:
+     - title.tex
+    toc-depth: 2
+    geometry:
+      - paperwidth=21.0cm
+      - paperheight=29.7cm
+      - left=2.5cm
+      - right=2.5cm
+      - top=2cm
+      - bottom=2.5cm
+      - textheight=26.0cm
+      - marginparsep=0cm
+      - marginparwidth=0cm
+      - footskip=1cm
+    include-in-header: preamble.tex
+    linkcolor: blue
+    citecolor: blue
+    fontsize: 12pt
+    link-citations: true
+
+
+    
+
+
+

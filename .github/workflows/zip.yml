@@ -1,0 +1,34 @@
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Zip
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Debug
+        run: |
+          ls -R
+          find . -type f -name "*QuartoBook.pdf*" -exec dirname "{}" \; |sort -u
+          pwd
+
+      - name: ZIP
+        run: |
+          mkdir materials
+          zip -r materials/AquaFortR_Swirl.zip AquaFortR_Swirl/
+          zip -r -j materials/AquaFortR_Codes.zip QuartoBook/AquaFortR_Codes/
+          
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: materials # The folder the action should deploy.

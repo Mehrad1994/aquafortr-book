@@ -1,0 +1,37 @@
+# Only trigger, when the build workflow succeeded
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Quarto Publish"]
+    types:
+      - completed
+
+name: Quarto Orginse
+
+jobs:
+  build-orginse:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: book-depoly
+          
+      - name: Create Book folder
+        run: |
+            git branch 
+            ls -R  && pwd
+            mkdir -p quartobook/book
+            shopt -s extglob
+            cp -r !(quartobook) quartobook/book/
+            ls -R quartobook/book/ && pwd
+            
+        
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: quartobook # The folder the action should deploy.
+          clean: false

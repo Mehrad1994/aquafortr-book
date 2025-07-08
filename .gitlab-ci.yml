@@ -1,0 +1,9 @@
+pages:
+  script:
+    - mkdir .public
+    - cp -r QuartoBook/_book/* .public
+  artifacts:
+    paths:
+      - .public
+  only:
+    - main
